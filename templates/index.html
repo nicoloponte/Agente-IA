@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jaime</title>
+</head>
+<body>
+    <h1>Agente IA</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="text" name="query" placeholder="Ingresa tu consulta">
+        <input type="file" name="archivo">
+        <button type="submit">Enviar</button>
+        <button type="button" id="stopButton">Stop</button>
+    </form>
+    {% if respuesta %}
+    <p>Respuesta: {{ respuesta }}</p>
+    {% endif %}
+
+    <script>
+        document.getElementById('stopButton').addEventListener('click', function() {
+            fetch('/stop', { method: 'POST' });
+        });
+    </script>
+</body>
+</html>
